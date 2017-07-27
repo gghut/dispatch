@@ -17,7 +17,6 @@ public abstract class QueueExecutorService extends LinkedBlockingQueue<TaskRunna
         service.scheduleAtFixedRate(()->{
             try {
                 TaskRunnable runnable = poll(period* 10L, TimeUnit.MILLISECONDS);
-                System.out.println("log");
                 if(runnable != null) {
                     executorService.execute(()->{
                         try {
